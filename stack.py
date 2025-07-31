@@ -1,14 +1,14 @@
 class Stack:
-    empty = True
-    element = None
+    def __init__(self):
+        self.elements = []
 
     def is_empty(self):
-        return self.empty
+        return len(self.elements) == 0
 
     def push(self, e):
-        self.empty = False
-        self.element = e
+        self.elements.append(e)
 
     def pop(self):
-        self.empty = True
-        return self.element
+        if self.is_empty():
+            return None
+        return self.elements.pop()

@@ -23,3 +23,25 @@ class StackTest(unittest.TestCase):
         s = Stack()
         s.push(7)
         self.assertEqual(s.pop(), 7)
+
+    def test_stack_after_3pushes_3pops_follow_lifo_strategy(self):
+        """
+        Note by this test we specified that the stack should have remember its
+        previous elements so now we will have to make it store its previous
+        elements in a list in stack.py
+        """
+        s = Stack()
+        s.push(0)
+        s.push(8)
+        s.push(3)
+        self.assertFalse(s.is_empty())
+        self.assertEqual(s.pop(), 3)
+        self.assertFalse(s.is_empty())
+        self.assertEqual(s.pop(), 8)
+        self.assertFalse(s.is_empty())
+        self.assertEqual(s.pop(), 0)
+        self.assertTrue(s.is_empty())
+        # By this assertion we specified that poping an empty stack must returns
+        # None
+        self.assertIsNone(s.pop())
+        self.assertTrue(s.is_empty())
